@@ -7,7 +7,8 @@
 const initState={
 
          Product:[],
-         Cart:[]
+         Cart:[],
+         total:0,
 }
 
 
@@ -30,7 +31,8 @@ const initState={
                                           
                                     return{
                                         ...state,
-                                        Cart:[...state.Cart,payload]
+                                        Cart:[...state.Cart,payload],
+                                        total:state.total + payload.price
                                     }
                                        
                                 }
