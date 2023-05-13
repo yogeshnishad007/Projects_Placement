@@ -27,7 +27,7 @@ const handleRemove=(id)=>{
 
       <h3>Total Item:{CartData.length}</h3>
 
-      <h3>Total Price:{TotalPrice}</h3>
+      <h3>Total Price:{Math.floor(TotalPrice)}</h3>
       </div>
       
         
