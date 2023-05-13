@@ -1,12 +1,24 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector ,useDispatch} from 'react-redux'
+import { removeProduct } from '../redux/action'
+
+
 const CartProducts = () => {
 
+  const dispatch=useDispatch()
   const CartData=useSelector((el)=>el.Cart)
-console.log("cart",CartData)
+   console.log("cart",CartData)
 
 const TotalPrice=useSelector((el)=>el.total)
-console.log("t",TotalPrice)
+   console.log("t",TotalPrice)
+
+
+const handleRemove=(id)=>{
+         
+  dispatch(removeProduct(id))
+  alert(`${id} REMOVE` )
+
+}
 
   return (
     <div>
@@ -36,7 +48,7 @@ console.log("t",TotalPrice)
                      <h3>{el.title}</h3>
                      <h3>Price:{el.price}</h3>
 
-                     <button >REMOVE</button>
+                     <button onClick={()=>handleRemove(el.id)} >REMOVE</button>
                      
                   </div>
               )

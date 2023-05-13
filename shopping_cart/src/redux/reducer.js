@@ -28,11 +28,30 @@ const initState={
 
 
                                 case "CART_PRODUCT":{
+
+                                    const checkItem = state.Cart.find(item => item.id === payload.id);
+  
+                                    if (checkItem) {
+                                        alert("Item already added to cart.");
+                                      return state;
+                                    } else {
+                                    
+                                      return {
+                                        ...state,
+                                        Cart: [...state.Cart, payload],
+                                        total: state.total + payload.price
+                                      };
+                                    }
+                                          
+                                   
+                                }
+
+                                case "REMOVE_PRODUCT":{
                                           
                                     return{
                                         ...state,
-                                        Cart:[...state.Cart,payload],
-                                        total:state.total + payload.price
+                                        Cart:[...state.Cart.filter(el=> el.id !== payload)],
+                                        
                                     }
                                        
                                 }

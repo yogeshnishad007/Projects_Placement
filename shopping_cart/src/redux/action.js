@@ -17,3 +17,11 @@ export const cartProduct=(cart)=>{
         payload:cart
     }
 }
+
+export const removeProduct=(id)=>{
+
+    return{
+        type:"REMOVE_PRODUCT",
+        payload:id
+    }
+}
