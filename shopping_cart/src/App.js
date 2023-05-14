@@ -10,22 +10,25 @@ function App() {
   return (
     <div className="App">
           
-       <Flex justifyContent="space-around"  mt={6}>
-          <Box>
+       
+        <Box bgColor="orange" height="50px">
+        <Flex justifyContent="space-around"  mt={6}>
+          <Box >
               <Heading size="lg">
 
                  <Link to="/">ALL PRODUCT</Link>
             </Heading>
           </Box>
 
-            <Box>
+             <Box>
                 <Heading  size="lg">
 
                     <Link to="/cart">CART PRODUCT</Link>
                 </Heading>
-           </Box>
-            
-        </Flex>
+            </Box>
+            </Flex>
+          </Box>  
+      
 
 
              <Routes>

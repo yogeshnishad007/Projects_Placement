@@ -4,7 +4,7 @@ import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
 import { getProduct } from '../redux/action'
 import { Link } from 'react-router-dom'
-import { Grid,Button,Box,Flex,Image,Text, Heading} from '@chakra-ui/react'
+import { Grid,Button,Box,Flex,Image,Text, Heading, VStack} from '@chakra-ui/react'
 
 import "../style.css"
 
@@ -56,26 +56,31 @@ console.log("data",data)
               return(
 
                 
-                    <Flex alignItems="center" p={3} boxShadow="md">
+                    <Flex alignItems="center" justifyContent="center" p={3} boxShadow="md">
                     
-                   <Box key={el.id}   >
+              <Box key={el.id}   >
                     
+                       <VStack>
+                     <Box>
+                         <Image width="150px"  src={el.image} alt={el.title} />
+                      </Box>
 
+                      <Box>
+                      <Text >Price:{el.price}</Text>
+                      </Box>
+                      
+                        
+                   <Box>
 
-                      <Image width="150px"  src={el.image} alt={el.title} />
-                      
-                      
-                         <Text >Price:{el.price}</Text>
-                 
-                      
+                        <Link to={`/singal/${el.id}`}>
+
+                            <Button colorScheme='blue'  size='sm'>View Item</Button>
+                         </Link>
+                   </Box>
+                    
+                   </VStack>
                    
-
-                    
-                      <Link to={`/singal/${el.id}`}>
-                      <Button colorScheme='blue'  size='sm'>View Item</Button>
-                     </Link>
-                   
-                  </Box>
+             </Box>
                   </Flex>
                    
               )
