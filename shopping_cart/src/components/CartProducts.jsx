@@ -25,7 +25,7 @@ const handleRemove=(id)=>{
   return (
     <div>
 
-      <Flex  justifyContent="space-around">
+      <Flex  justifyContent="space-around" mt={20}>
               <Box>
 
                   <Text fontSize='2xl' as="b">Total Item : {CartData.length}</Text>
