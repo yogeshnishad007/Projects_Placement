@@ -4,23 +4,29 @@ import {Routes,Route,Link} from "react-router-dom"
 import ProductDetails from "./components/ProductDetails"
 import CartProducts from "./components/CartProducts";
 import SingelProduct from "./components/SingelProduct"
+import { Box,Heading,Flex } from '@chakra-ui/react';
 
 function App() {
   return (
     <div className="App">
           
-          <div style={{display:"flex", justifyContent:"space-around"}}>
-            <h2>
+       <Flex justifyContent="space-around"  mt={6}>
+          <Box>
+              <Heading size="lg">
 
-              <Link to="/">ALL PRODUCT</Link>
-            </h2>
-           
-           <h2>
+                 <Link to="/">ALL PRODUCT</Link>
+            </Heading>
+          </Box>
 
-           <Link to="/cart">CART PRODUCT</Link>
-           </h2>
+            <Box>
+                <Heading  size="lg">
+
+                    <Link to="/cart">CART PRODUCT</Link>
+                </Heading>
+           </Box>
             
-             </div>
+        </Flex>
+
 
              <Routes>
           

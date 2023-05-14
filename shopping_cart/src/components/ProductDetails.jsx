@@ -4,7 +4,7 @@ import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
 import { getProduct } from '../redux/action'
 import { Link } from 'react-router-dom'
-import { Grid,Button,Box,Flex,Image,Text} from '@chakra-ui/react'
+import { Grid,Button,Box,Flex,Image,Text, Heading} from '@chakra-ui/react'
 
 import "../style.css"
 
@@ -45,9 +45,7 @@ console.log("data",data)
   return (
     <div>
         
-       <h1>ProductDetails</h1> 
-
-        {/* <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", marginBottom:"50px"}}> */}
+       <Heading mb={4} size="md">Product Details</Heading> 
 
        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
 
