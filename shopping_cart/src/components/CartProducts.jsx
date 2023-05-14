@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector ,useDispatch} from 'react-redux'
 import { removeProduct } from '../redux/action'
+import { Button,Box,Image,Text,Grid, VStack,Flex} from '@chakra-ui/react'
 
 
 
@@ -17,51 +18,71 @@ const TotalPrice=useSelector((el)=>el.total)
 const handleRemove=(id)=>{
          
   dispatch(removeProduct(id))
-  alert(`${id} REMOVE` )
+  alert(`ID NUMBER ${id} REMOVED` )
 
 }
 
   return (
     <div>
 
-      <div style={{display:"flex", justifyContent:"space-around"}}>
+      <Flex  justifyContent="space-around">
+              <Box>
 
-      <h3>Total Item:{CartData.length}</h3>
+                  <Text fontSize='2xl' as="b">Total Item : {CartData.length}</Text>
+              </Box>
+               
+                <Box>
+                      <Text fontSize='2xl' as="b">Total Price : {Math.floor(TotalPrice)}</Text>
+                </Box>
 
-      <h3>Total Price:{Math.floor(TotalPrice)}</h3>
-      </div>
+           
+      </Flex>
       
         
-        <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)"}}>
+      <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={20}>
 
-   
+    
        
          {
 
           CartData.map((el)=>{
 
               return(
+                // <Flex alignItems="center" justifyContent="center" p={3} boxShadow="md">
+              
+         <Box key={el.id}>
+               <VStack>
 
-                <div key={el.id} style={{marginTop:"50px"}}>
+                     <Box>
+                        <Image width="100px" src={el.image} alt={el.title}/>
+                     </Box>
 
-                  <img width="100px" src={el.image} alt={el.title}/>
+                      <Box>
+                         <Text size="lg" as="b">{el.title}</Text>
+                      </Box>
+
+                       <Box>
+                            <Text size="lg" as="b"> Price : {el.price}</Text>
+                                
+                       </Box>
                      
-                     <h3>{el.title}</h3>
-                     <h3>Price:{el.price}</h3>
+                    
+                  
 
-                     <button onClick={()=>handleRemove(el.id)} >REMOVE</button>
+                     <Box>
+                         <Button colorScheme='red' onClick={()=>handleRemove(el.id)} >REMOVE</Button>
 
+                     </Box>
 
-                   {/* <Link to={`/singal/${el.id}`}>
-                     <button>View Item</button>
-                     </Link> */}
-
-                  </div>
+                     
+                     </VStack>
+                 </Box>
+              // </Flex>
               )
           })
          }
-
-</div>
+   
+      </Grid>
 
     </div>
   )

@@ -56,27 +56,27 @@ console.log("data",data)
               return(
 
                 
-                    <Flex alignItems="center" justifyContent="center" p={3} boxShadow="md">
+          <Flex alignItems="center" justifyContent="center" p={3} boxShadow="md">
                     
               <Box key={el.id}   >
                     
                        <VStack>
-                     <Box>
-                         <Image width="150px"  src={el.image} alt={el.title} />
-                      </Box>
+                          <Box>
+                               <Image width="150px"  src={el.image} alt={el.title} />
+                          </Box>
 
-                      <Box>
-                      <Text >Price:{el.price}</Text>
-                      </Box>
+                         <Box>
+                             <Text >Price:{el.price}</Text>
+                         </Box>
                       
                         
-                   <Box>
+                        <Box>
 
-                        <Link to={`/singal/${el.id}`}>
+                           <Link to={`/singal/${el.id}`}>
 
                             <Button colorScheme='blue'  size='sm'>View Item</Button>
-                         </Link>
-                   </Box>
+                           </Link>
+                       </Box>
                     
                    </VStack>
                    
