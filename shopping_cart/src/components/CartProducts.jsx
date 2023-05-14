@@ -3,6 +3,7 @@ import { useSelector ,useDispatch} from 'react-redux'
 import { removeProduct } from '../redux/action'
 
 
+
 const CartProducts = () => {
 
   const dispatch=useDispatch()
@@ -49,7 +50,12 @@ const handleRemove=(id)=>{
                      <h3>Price:{el.price}</h3>
 
                      <button onClick={()=>handleRemove(el.id)} >REMOVE</button>
-                     
+
+
+                   {/* <Link to={`/singal/${el.id}`}>
+                     <button>View Item</button>
+                     </Link> */}
+
                   </div>
               )
           })

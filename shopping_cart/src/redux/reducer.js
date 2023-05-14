@@ -8,6 +8,7 @@ const initState={
 
          Product:[],
          Cart:[],
+         Singel:{},
          total:0,
 }
 
@@ -16,6 +17,16 @@ const initState={
   export const productReducer=(state=initState,{type,payload})=>{
 
                             switch(type){
+
+
+                              case "SINGAL_PRODUCT":{
+                                          
+                                return{
+                                    ...state,
+                                    Singel:{...payload}
+                                }
+                                   
+                            }
 
                                 case "GET_PRODUCT":{
                                           

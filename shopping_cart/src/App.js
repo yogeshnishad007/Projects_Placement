@@ -3,7 +3,7 @@ import './App.css';
 import {Routes,Route,Link} from "react-router-dom"
 import ProductDetails from "./components/ProductDetails"
 import CartProducts from "./components/CartProducts";
-import SingalProduct from "./components/SingalProduct"
+import SingelProduct from "./components/SingelProduct"
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           
                 <Route path="/" element={<ProductDetails/>}/>
               
-                <Route path="/singal/:id" element={<SingalProduct/>}/>
+                <Route path="/singal/:id" element={<SingelProduct/>}/>
                 <Route path="/cart" element={<CartProducts/>}/>
                
              

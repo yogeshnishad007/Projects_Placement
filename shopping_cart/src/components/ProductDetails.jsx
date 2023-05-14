@@ -2,7 +2,8 @@
 import React,{useEffect, useState} from 'react'
 import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
-import { cartProduct, getProduct } from '../redux/action'
+import { getProduct } from '../redux/action'
+import { Link } from 'react-router-dom'
 
 const ProductDetails = () => {
 
@@ -38,11 +39,6 @@ console.log("data",data)
 
   
 
-  const handleAdd=(item)=>{
-
-           dispatch(cartProduct(item))
-  }
-
   return (
     <div>
         
@@ -60,8 +56,10 @@ console.log("data",data)
                       <img width="100px"  src={el.image} alt={el.title} />
 
                       <h3>Price:{el.price}</h3>
-                      
-                      <button onClick={()=>handleAdd(el)} >Add Item</button>
+
+                      <Link to={`/singal/${el.id}`}>
+                               <button>View Item</button>
+                     </Link>
                       
                       
                    </div>

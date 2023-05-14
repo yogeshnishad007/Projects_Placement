@@ -25,3 +25,12 @@ export const removeProduct=(id)=>{
         payload:id
     }
 }
+
+
+export const singalProduct=(data)=>{
+
+    return{
+        type:"SINGAL_PRODUCT",
+        payload:data
+    }
+}
