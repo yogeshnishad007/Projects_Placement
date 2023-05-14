@@ -4,6 +4,9 @@ import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
 import { getProduct } from '../redux/action'
 import { Link } from 'react-router-dom'
+import { Grid,Button,Box,Flex,Image,Text} from '@chakra-ui/react'
+
+import "../style.css"
 
 const ProductDetails = () => {
 
@@ -44,31 +47,47 @@ console.log("data",data)
         
        <h1>ProductDetails</h1> 
 
-        <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", marginBottom:"50px"}}>
+        {/* <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", marginBottom:"50px"}}> */}
+
+       <Grid templateColumns='repeat(4, 1fr)' gap={6}>
+
        {
 
         data.map((el)=>{
 
               return(
 
-                   <div key={el.id}>
+                
+                    <Flex alignItems="center" p={3} boxShadow="md">
+                    
+                   <Box key={el.id}   >
+                    
 
-                      <img width="100px"  src={el.image} alt={el.title} />
 
-                      <h3>Price:{el.price}</h3>
+                      <Image width="150px"  src={el.image} alt={el.title} />
+                      
+                      
+                         <Text >Price:{el.price}</Text>
+                 
+                      
+                   
 
+                    
                       <Link to={`/singal/${el.id}`}>
-                               <button>View Item</button>
+                      <Button colorScheme='blue'  size='sm'>View Item</Button>
                      </Link>
-                      
-                      
-                   </div>
+                   
+                  </Box>
+                  </Flex>
+                   
               )
         })
        }
+
+    </Grid>
 </div>
 
-    </div>
+    // </div>
   )
 }
 
