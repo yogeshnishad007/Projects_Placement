@@ -8,7 +8,7 @@ import { Box,Heading,Flex } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
 function App() {
-  
+
 const Data=useSelector(el=> el.Cart)
 
   return (
@@ -27,7 +27,7 @@ const Data=useSelector(el=> el.Cart)
           <Box >
               <Heading size="lg">
 
-                 <Link to="/">CART {Data.length}</Link>
+                 <Link to="/">CART ({Data.length})</Link>
             </Heading>
           </Box>
 
