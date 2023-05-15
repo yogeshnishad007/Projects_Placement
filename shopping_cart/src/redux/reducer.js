@@ -59,11 +59,17 @@ const initState={
 
                                 case "REMOVE_PRODUCT":{
                                           
-                                    return{
-                                        ...state,
-                                        Cart:[...state.Cart.filter(el=> el.id !== payload)],
-                                        
-                                    }
+                                  const removedItem = state.Cart.find((item) => item.id === payload);
+                                  if (removedItem) {
+                                    const newTotal = state.total - removedItem.price;
+                                    
+                                    return {
+                                      ...state,
+                                      Cart: state.Cart.filter((el) => el.id !== payload),
+                                      total: newTotal,
+                                    };
+                                  }
+                                  return state;
                                        
                                 }
 

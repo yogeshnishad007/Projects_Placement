@@ -12,6 +12,7 @@ const ProductDetails = () => {
 
   
   const[item,setItem]=useState([])
+ 
 const dispatch=useDispatch()
 
 
@@ -23,7 +24,9 @@ console.log("data",data)
        
     await axios.get("https://fakestoreapi.com/products")
              .then((res)=>{
+                
                  setItem(res.data)
+                
                  console.log("res",res.data)
              }).catch((err)=>{
               console.log(err)
@@ -33,6 +36,7 @@ console.log("data",data)
 
 
   useEffect(() => {
+    
     fetchData();
   }, []);
   
@@ -40,12 +44,16 @@ console.log("data",data)
     dispatch(getProduct(item));
   }, [item, dispatch]);
 
-  
+       
+
 
   return (
     <div>
+           
         
        <Heading mb={4} size="md">Product Details</Heading> 
+
+    
 
        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
 
