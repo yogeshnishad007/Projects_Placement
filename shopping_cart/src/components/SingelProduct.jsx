@@ -35,6 +35,7 @@ const SingelProduct = () => {
    const handleAdd=(item)=>{
 
            dispatch(cartProduct(item))
+           alert("Added In Cart")
   }
 
   useEffect(()=>{
