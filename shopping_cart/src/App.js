@@ -5,8 +5,12 @@ import ProductDetails from "./components/ProductDetails"
 import CartProducts from "./components/CartProducts";
 import SingelProduct from "./components/SingelProduct"
 import { Box,Heading,Flex } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 
 function App() {
+  
+const Data=useSelector(el=> el.Cart)
+
   return (
     <div className="App">
           
@@ -17,6 +21,13 @@ function App() {
               <Heading size="lg">
 
                  <Link to="/">ALL PRODUCT</Link>
+            </Heading>
+          </Box>
+
+          <Box >
+              <Heading size="lg">
+
+                 <Link to="/">CART {Data.length}</Link>
             </Heading>
           </Box>
 
