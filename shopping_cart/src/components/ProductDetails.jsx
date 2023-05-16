@@ -4,35 +4,40 @@ import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
 import { getProduct } from '../redux/action'
 import { Link } from 'react-router-dom'
-import { Grid,Button,Box,Flex,Image,Text, Heading, VStack} from '@chakra-ui/react'
+import { Grid,Button,Box,Flex,Image,Text, Heading, VStack,Skeleton} from '@chakra-ui/react'
 
 import "../style.css"
 
 const ProductDetails = () => {
 
-  
   const[item,setItem]=useState([])
+  const[loading,setLoading]=useState(false)
  
-const dispatch=useDispatch()
+  const dispatch=useDispatch()
 
 
 
 const data=useSelector((el)=>el.Product)
 console.log("data",data)
 
+
+// ------------------------------ API Call Here---------------------------
+
   const fetchData=async ()=>{
-       
+        setLoading(true)
     await axios.get("https://fakestoreapi.com/products")
              .then((res)=>{
                 
                  setItem(res.data)
-                
+                 setLoading(false)
                  console.log("res",res.data)
              }).catch((err)=>{
               console.log(err)
              })
        
   }
+
+  // --------------------------- Get Data Use Here
 
 
   useEffect(() => {
@@ -44,7 +49,28 @@ console.log("data",data)
     dispatch(getProduct(item));
   }, [item, dispatch]);
 
-       
+
+  // ------------------------------- Loading Logic Here -----------------------------------
+       const Loading=()=>{
+
+            return(
+              <>
+
+              <Grid  templateColumns='repeat(4, 1fr)' gap={6}>
+                 
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                        <Skeleton height='300px' />
+                
+                </Grid> 
+              </>
+            )
+       }
 
 
   return (
@@ -53,7 +79,10 @@ console.log("data",data)
         
        <Heading mb={4} size="md">Product Details</Heading> 
 
-    
+          {
+
+            loading && <Loading/>
+          }
 
        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
 
