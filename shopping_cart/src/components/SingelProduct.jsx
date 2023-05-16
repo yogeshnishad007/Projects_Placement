@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartProduct, singalProduct } from '../redux/action';
 import { Button,Box,Image,Text, Heading, VStack,Flex} from '@chakra-ui/react'
 
+
 const SingelProduct = () => {
 
   const dispatch=useDispatch();
   const singelData=useSelector(el=>el.Singel)
-  const {price,image,title,description}=singelData
+  const {price,image,title,description,rating}=singelData
 
 
   // console.log("s",singelData)
@@ -30,6 +31,10 @@ const SingelProduct = () => {
               console.log(err)
            })
   }
+
+
+
+
 
 
    const handleAdd=(item)=>{
@@ -79,6 +84,14 @@ const SingelProduct = () => {
                <Box>
                    <Text fontSize='md' as="b">Price : {price}</Text>
               </Box>
+
+
+              
+              <Box>
+                   <Text fontSize='md' as="b">Rate: {rating && rating.rate}</Text>
+              </Box>
+
+             
 
                <Box>
                    <Button colorScheme='teal' onClick={()=>handleAdd(singelData)} >Add Item</Button> 
