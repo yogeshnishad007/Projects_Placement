@@ -4,7 +4,8 @@ import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux';
 import { cartProduct, singalProduct } from '../redux/action';
 import { Button,Box,Image,Text, Heading, VStack,Flex} from '@chakra-ui/react'
-
+import { Icon } from '@chakra-ui/react';
+import { StarIcon } from '@chakra-ui/icons';
 
 const SingelProduct = () => {
 
@@ -33,6 +34,26 @@ const SingelProduct = () => {
   }
 
 
+    // Star Rating Logic Here 
+
+    const starRating=(rate)=>{
+
+         let star=[];
+
+           for(let i=0;i<5;i++){
+
+            if(i<=rate){
+
+              star.push(<Icon as={StarIcon} color="yellow.500"/>)
+            } else{
+
+              star.push(<Icon  as={StarIcon} color="grey.300"/>)
+            }
+
+           }
+
+           return star
+    }
 
 
 
@@ -91,6 +112,9 @@ const SingelProduct = () => {
                    <Text fontSize='md' as="b">Rate: {rating && rating.rate}</Text>
               </Box>
 
+              <Box>
+                   <Text fontSize='md' as="b">{rating && starRating(rating.rate)}</Text>
+              </Box>
              
 
                <Box>
