@@ -73,11 +73,42 @@ console.log("data",data)
        }
 
 
+       //------------------------------- Handle Filetr Logic Here-----------------------------------
+
+     useEffect(()=>{
+           handleFilter()
+       },[])
+
+        const handleFilter= async(val)=>{
+
+          await axios.get(`https://fakestoreapi.com/products/category/${val}`)
+          .then((res)=>{
+               setItem(res.data)
+               console.log("fill",res.data)
+          }) 
+          .catch((err)=>{
+
+            console.log(err)
+          })
+
+
+
+     }
+
+     
+    
+
+
   return (
     <div>
            
         
        <Heading mb={4} size="md">Product Details</Heading> 
+
+       <Box>
+                <Button colorScheme='blue'  onClick={()=> handleFilter("men's clothing")} size='sm'>Men's</Button>
+         
+       </Box>
 
           {
 
