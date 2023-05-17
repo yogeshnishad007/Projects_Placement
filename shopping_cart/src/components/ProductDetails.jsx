@@ -80,7 +80,7 @@ console.log("data",data)
        },[])
 
         const handleFilter= async(val)=>{
-
+          console.log("Making API request...");
           await axios.get(`https://fakestoreapi.com/products/category/${val}`)
           .then((res)=>{
                setItem(res.data)
@@ -88,9 +88,10 @@ console.log("data",data)
           }) 
           .catch((err)=>{
 
-            console.log(err)
+            console.log(err.message)
+            alert(err.message)
           })
-
+          console.log("API request completed.");
 
 
      }
