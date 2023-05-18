@@ -83,7 +83,7 @@ console.log("data",data)
           console.log("Making API request...");
           await axios.get(`https://fakestoreapi.com/products/category/${val}`)
           .then((res)=>{
-               setItem(res.data)
+            
                console.log("fill",res.data)
           }) 
           .catch((err)=>{
@@ -106,10 +106,26 @@ console.log("data",data)
         
        <Heading mb={4} size="md">Product Details</Heading> 
 
+       <Grid templateColumns='repeat(4, 1fr)' gap={10}>
+
        <Box>
                 <Button colorScheme='blue'  onClick={()=> handleFilter("men's clothing")} size='sm'>Men's</Button>
+               
          
        </Box>
+
+       <Box>
+           <Button colorScheme='blue'  onClick={()=> handleFilter("women's clothing")} size='sm'>Women's</Button>
+       </Box>
+
+       <Box>
+           <Button colorScheme='blue'  onClick={()=> handleFilter("electronics")} size='sm'>Electronics</Button>
+       </Box>
+
+   </Grid>
+
+
+
 
           {
 
